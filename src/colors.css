@@ -1,0 +1,566 @@
+@layer colors, base, ui, prism;
+
+#storybook-docs {
+  p {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  pre.prismjs {
+    background-color: #2f3440;
+
+    span {
+      color: #eceff4;
+      font-size: 1.2em;
+    }
+
+    .token.cdata,
+    .token.comment,
+    .token.doctype,
+    .token.prolog {
+      color: #708090;
+    }
+
+    .token.punctuation {
+      color: #999;
+    }
+
+    .token.namespace {
+      opacity: 0.7;
+    }
+
+    .token.operator,
+    .token.boolean,
+    .token.constant,
+    .token.deleted,
+    .token.number,
+    .token.property,
+    .token.symbol,
+    .token.keyword.module,
+    .token.tag {
+      color: #81a1c1;
+    }
+
+    .token.attr-name,
+    .token.builtin,
+    .token.char,
+    .token.inserted,
+    .token.attr-value,
+    .token.selector,
+    .token.string {
+      color: #a3be8c;
+    }
+
+    .language-css .token.string,
+    .style .token.string,
+    .token.entity,
+    .token.url {
+      color: #a3be8c;
+    }
+
+    .token.atrule,
+    .token.attr-name,
+    .token.keyword {
+      color: #8fbcbb;
+    }
+
+    .token.class-name,
+    .token.function {
+      color: #8fbece;
+    }
+
+    .token.important,
+    .token.regex,
+    .token.variable {
+      color: #e90;
+    }
+
+    .token.bold,
+    .token.important {
+      font-weight: 700;
+    }
+
+    .token.italic {
+      font-style: italic;
+    }
+
+    .token.entity {
+      cursor: help;
+    }
+  }
+}
+
+@layer base {
+  :not(:defined) {
+    opacity: 0;
+  }
+
+  :root {
+    background-color: var(--color-surface-container-lowest);
+    color: var(--color-on-surface);
+  }
+}
+
+@layer colors {
+  :root {
+    --color-black: rgb(0 0 0);
+    --color-white: rgb(255 255 255);
+    --color-on-primary-fixed: rgb(0 29 50);
+    --color-on-primary-fixed-variant: rgb(41 73 101);
+    --color-on-secondary-fixed: rgb(0 32 32);
+    --color-on-secondary-fixed-variant: rgb(33 78 77);
+    --color-on-tertiary-fixed: rgb(12 32 1);
+    --color-on-tertiary-fixed-variant: rgb(54 77 38);
+    --color-primary-fixed: rgb(206 229 255);
+    --color-primary-fixed-dim: rgb(169 202 235);
+    --color-secondary-fixed: rgb(189 235 234);
+    --color-secondary-fixed-dim: rgb(161 207 206);
+    --color-tertiary-fixed: rgb(207 235 182);
+    --color-tertiary-fixed-dim: rgb(180 207 156);
+  }
+
+  :is(:root, :root.light.normal) {
+    --color-on-error-container: rgb(123 44 54);
+    --color-on-error: rgb(255 255 255);
+    --color-on-primary-container: rgb(41 73 101);
+    --color-on-primary: rgb(255 255 255);
+    --color-on-secondary-container: rgb(33 78 77);
+    --color-on-secondary: rgb(255 255 255);
+    --color-on-surface: rgb(22 28 36);
+    --color-on-surface-variant: rgb(65 71 83);
+    --color-on-tertiary-container: rgb(54 77 38);
+    --color-on-tertiary: rgb(255 255 255);
+    --color-on-warn-container: rgb(242 227 160);
+    --color-on-warn: rgb(255 255 255);
+    --color-warn-0: rgb(14 11 0);
+    --color-warn-5: rgb(21 17 0);
+    --color-warn-10: rgb(33 27 0);
+    --color-warn-20: rgb(56 48 0);
+    --color-warn-30: rgb(80 71 19);
+    --color-warn-40: rgb(105 95 41);
+    --color-warn-50: rgb(130 119 63);
+    --color-warn-60: rgb(157 145 86);
+    --color-warn-70: rgb(185 172 110);
+    --color-warn-80: rgb(213 199 135);
+    --color-warn-90: rgb(242 227 160);
+    --color-warn-95: rgb(255 241 181);
+    --color-warn-container: rgb(242 227 160);
+    --color-warn: rgb(105 95 41);
+    --color-error-0: rgb(33 0 4);
+    --color-error-5: rgb(44 0 7);
+    --color-error-10: rgb(64 0 14);
+    --color-error-20: rgb(93 21 33);
+    --color-error-30: rgb(123 44 54);
+    --color-error-40: rgb(153 67 76);
+    --color-error-50: rgb(183 91 100);
+    --color-error-60: rgb(214 115 124);
+    --color-error-70: rgb(246 141 150);
+    --color-error-80: rgb(255 178 183);
+    --color-error-90: rgb(255 218 219);
+    --color-error-95: rgb(255 236 236);
+    --color-error-container: rgb(255 218 219);
+    --color-error: rgb(153 67 76);
+    --color-primary-0: rgb(0 12 25);
+    --color-primary-5: rgb(0 18 34);
+    --color-primary-10: rgb(0 29 50);
+    --color-primary-20: rgb(14 51 78);
+    --color-primary-30: rgb(41 73 101);
+    --color-primary-40: rgb(65 97 126);
+    --color-primary-50: rgb(90 122 152);
+    --color-primary-60: rgb(116 148 179);
+    --color-primary-70: rgb(142 174 207);
+    --color-primary-80: rgb(169 202 235);
+    --color-primary-90: rgb(206 229 255);
+    --color-primary-95: rgb(232 242 255);
+    --color-primary-container: rgb(206 229 255);
+    --color-primary: rgb(65 97 126);
+    --color-secondary-0: rgb(0 14 13);
+    --color-secondary-5: rgb(0 20 20);
+    --color-secondary-10: rgb(0 32 32);
+    --color-secondary-20: rgb(2 55 54);
+    --color-secondary-30: rgb(33 78 77);
+    --color-secondary-40: rgb(58 102 101);
+    --color-secondary-50: rgb(83 127 126);
+    --color-secondary-60: rgb(108 153 152);
+    --color-secondary-70: rgb(135 179 178);
+    --color-secondary-80: rgb(161 207 206);
+    --color-secondary-90: rgb(189 235 234);
+    --color-secondary-95: rgb(203 250 248);
+    --color-secondary-container: rgb(189 235 234);
+    --color-secondary: rgb(58 102 101);
+    --color-surface-bright: rgb(248 249 255);
+    --color-surface-container: rgb(232 238 249);
+    --color-surface-container-high: rgb(226 232 244);
+    --color-surface-container-highest: rgb(221 227 238);
+    --color-surface-container-low: rgb(238 244 255);
+    --color-surface-container-lowest: rgb(255 255 255);
+    --color-surface: rgb(248 249 255);
+    --color-surface-dim: rgb(212 218 229);
+    --color-surface-tint: rgb(65 97 126);
+    --color-surface-variant: rgb(221 226 242);
+    --color-tertiary-0: rgb(3 14 0);
+    --color-tertiary-5: rgb(5 21 0);
+    --color-tertiary-10: rgb(12 32 1);
+    --color-tertiary-20: rgb(33 54 17);
+    --color-tertiary-30: rgb(54 77 38);
+    --color-tertiary-40: rgb(77 101 59);
+    --color-tertiary-50: rgb(101 126 82);
+    --color-tertiary-60: rgb(127 152 106);
+    --color-tertiary-70: rgb(153 179 130);
+    --color-tertiary-80: rgb(180 207 156);
+    --color-tertiary-90: rgb(207 235 182);
+    --color-tertiary-95: rgb(221 250 195);
+    --color-tertiary-container: rgb(207 235 182);
+    --color-tertiary: rgb(77 101 59);
+  }
+
+  :root.light.low {
+    --color-on-error-container: rgb(187 93 102);
+    --color-on-error: rgb(255 251 255);
+    --color-on-primary-container: rgb(93 125 155);
+    --color-on-primary: rgb(253 252 255);
+    --color-on-primary-fixed: rgb(46 79 107);
+    --color-on-primary-fixed-variant: rgb(74 105 135);
+    --color-on-secondary-container: rgb(86 130 129);
+    --color-on-secondary: rgb(243 255 254);
+    --color-on-secondary-fixed: rgb(39 83 83);
+    --color-on-secondary-fixed-variant: rgb(66 110 109);
+    --color-on-surface: rgb(89 96 105);
+    --color-on-surface-variant: rgb(117 123 137);
+    --color-on-tertiary-container: rgb(104 129 84);
+    --color-on-tertiary: rgb(249 255 237);
+    --color-on-tertiary-fixed: rgb(60 83 43);
+    --color-on-tertiary-fixed-variant: rgb(85 109 66);
+    --color-on-warn-container: rgb(232 217 151);
+    --color-on-warn: rgb(255 251 255);
+    --color-warn-container: rgb(232 217 151);
+    --color-warn: rgb(128 117 61);
+    --color-error-container: rgb(255 205 207);
+    --color-error: rgb(180 88 97);
+    --color-primary-container: rgb(188 220 255);
+    --color-primary: rgb(88 120 150);
+    --color-primary-fixed: rgb(188 220 255);
+    --color-primary-fixed-dim: rgb(160 192 226);
+    --color-secondary-container: rgb(180 226 224);
+    --color-secondary: rgb(80 124 123);
+    --color-secondary-fixed: rgb(180 226 224);
+    --color-secondary-fixed-dim: rgb(152 198 196);
+    --color-surface-container: rgb(232 238 249);
+    --color-surface-container-high: rgb(226 232 244);
+    --color-surface-container-highest: rgb(221 227 238);
+    --color-surface-container-low: rgb(238 244 255);
+    --color-surface-dim: rgb(212 218 229);
+    --color-tertiary-container: rgb(198 226 173);
+    --color-tertiary: rgb(99 124 80);
+    --color-tertiary-fixed: rgb(198 226 173);
+    --color-tertiary-fixed-dim: rgb(170 198 147);
+  }
+
+  :root.light.mid {
+    --color-on-error-container: rgb(255 255 255);
+    --color-on-error: rgb(255 255 255);
+    --color-on-primary-container: rgb(255 255 255);
+    --color-on-primary: rgb(255 255 255);
+    --color-on-primary-fixed: rgb(255 255 255);
+    --color-on-primary-fixed-variant: rgb(255 255 255);
+    --color-on-secondary-container: rgb(255 255 255);
+    --color-on-secondary: rgb(255 255 255);
+    --color-on-secondary-fixed: rgb(255 255 255);
+    --color-on-secondary-fixed-variant: rgb(255 255 255);
+    --color-on-surface: rgb(11 18 25);
+    --color-on-surface-variant: rgb(48 54 66);
+    --color-on-tertiary-container: rgb(255 255 255);
+    --color-on-tertiary: rgb(255 255 255);
+    --color-on-tertiary-fixed: rgb(255 255 255);
+    --color-on-tertiary-fixed-variant: rgb(255 255 255);
+    --color-on-warn-container: rgb(120 109 54);
+    --color-on-warn: rgb(255 255 255);
+    --color-warn-container: rgb(120 109 54);
+    --color-warn: rgb(62 54 4);
+    --color-error-container: rgb(171 81 90);
+    --color-error: rgb(101 27 38);
+    --color-primary-container: rgb(80 112 142);
+    --color-primary: rgb(22 57 84);
+    --color-primary-fixed: rgb(80 112 142);
+    --color-primary-fixed-dim: rgb(56 88 116);
+    --color-secondary-container: rgb(73 116 116);
+    --color-secondary: rgb(11 61 60);
+    --color-secondary-fixed: rgb(73 116 116);
+    --color-secondary-fixed-dim: rgb(48 92 91);
+    --color-surface-container: rgb(226 232 244);
+    --color-surface-container-high: rgb(215 221 232);
+    --color-surface-container-highest: rgb(204 210 221);
+    --color-surface-container-low: rgb(238 244 255);
+    --color-surface-dim: rgb(193 199 210);
+    --color-tertiary-container: rgb(92 116 73);
+    --color-tertiary: rgb(38 60 22);
+    --color-tertiary-fixed: rgb(92 116 73);
+    --color-tertiary-fixed-dim: rgb(68 91 50);
+  }
+
+  :root.light.high {
+    --color-on-error-container: rgb(255 255 255);
+    --color-on-error: rgb(255 255 255);
+    --color-on-primary-container: rgb(255 255 255);
+    --color-on-primary: rgb(255 255 255);
+    --color-on-primary-fixed: rgb(255 255 255);
+    --color-on-primary-fixed-variant: rgb(255 255 255);
+    --color-on-secondary-container: rgb(255 255 255);
+    --color-on-secondary: rgb(255 255 255);
+    --color-on-secondary-fixed: rgb(255 255 255);
+    --color-on-secondary-fixed-variant: rgb(255 255 255);
+    --color-on-surface: rgb(0 0 0);
+    --color-on-surface-variant: rgb(0 0 0);
+    --color-on-tertiary-container: rgb(255 255 255);
+    --color-on-tertiary: rgb(255 255 255);
+    --color-on-tertiary-fixed: rgb(255 255 255);
+    --color-on-tertiary-fixed-variant: rgb(255 255 255);
+    --color-on-warn-container: rgb(82 73 22);
+    --color-on-warn: rgb(255 255 255);
+    --color-warn-container: rgb(82 73 22);
+    --color-warn: rgb(52 44 0);
+    --color-error-container: rgb(126 46 56);
+    --color-error: rgb(87 17 29);
+    --color-primary-container: rgb(43 76 104);
+    --color-primary: rgb(7 46 73);
+    --color-primary-fixed: rgb(43 76 104);
+    --color-primary-fixed-dim: rgb(17 53 80);
+    --color-secondary-container: rgb(35 80 80);
+    --color-secondary: rgb(0 50 50);
+    --color-secondary-fixed: rgb(35 80 80);
+    --color-secondary-fixed-dim: rgb(6 57 57);
+    --color-surface-container: rgb(221 227 238);
+    --color-surface-container-high: rgb(207 213 224);
+    --color-surface-container-highest: rgb(193 199 210);
+    --color-surface-container-low: rgb(235 241 252);
+    --color-surface-dim: rgb(179 185 196);
+    --color-tertiary-container: rgb(57 79 40);
+    --color-tertiary: rgb(28 50 13);
+    --color-tertiary-fixed: rgb(57 79 40);
+    --color-tertiary-fixed-dim: rgb(35 56 19);
+  }
+
+  :is(:root.dark, :root.dark.normal) {
+    --color-on-error-container: rgb(255 218 219);
+    --color-on-error: rgb(93 21 33);
+    --color-on-primary-container: rgb(206 229 255);
+    --color-on-primary: rgb(14 51 78);
+    --color-on-secondary-container: rgb(189 235 234);
+    --color-on-secondary: rgb(2 55 54);
+    --color-on-surface: rgb(221 227 238);
+    --color-on-surface-variant: rgb(193 198 214);
+    --color-on-tertiary-container: rgb(207 235 182);
+    --color-on-tertiary: rgb(33 54 17);
+    --color-on-warn-container: rgb(80 71 19);
+    --color-on-warn: rgb(56 48 0);
+    --color-warn-0: rgb(255 241 181);
+    --color-warn-5: rgb(242 227 160);
+    --color-warn-10: rgb(213 199 135);
+    --color-warn-20: rgb(185 172 110);
+    --color-warn-30: rgb(157 145 86);
+    --color-warn-40: rgb(130 119 63);
+    --color-warn-50: rgb(105 95 41);
+    --color-warn-60: rgb(80 71 19);
+    --color-warn-70: rgb(56 48 0);
+    --color-warn-80: rgb(33 27 0);
+    --color-warn-90: rgb(21 17 0);
+    --color-warn-95: rgb(14 11 0);
+    --color-warn-container: rgb(80 71 19);
+    --color-warn: rgb(213 199 135);
+    --color-error-0: rgb(255 236 236);
+    --color-error-5: rgb(255 218 219);
+    --color-error-10: rgb(255 178 183);
+    --color-error-20: rgb(246 141 150);
+    --color-error-30: rgb(214 115 124);
+    --color-error-40: rgb(183 91 100);
+    --color-error-50: rgb(153 67 76);
+    --color-error-60: rgb(123 44 54);
+    --color-error-70: rgb(93 21 33);
+    --color-error-80: rgb(64 0 14);
+    --color-error-90: rgb(44 0 7);
+    --color-error-95: rgb(33 0 4);
+    --color-error-container: rgb(123 44 54);
+    --color-error: rgb(255 178 183);
+    --color-primary-0: rgb(232 242 255);
+    --color-primary-5: rgb(206 229 255);
+    --color-primary-10: rgb(169 202 235);
+    --color-primary-20: rgb(142 174 207);
+    --color-primary-30: rgb(116 148 179);
+    --color-primary-40: rgb(90 122 152);
+    --color-primary-50: rgb(65 97 126);
+    --color-primary-60: rgb(41 73 101);
+    --color-primary-70: rgb(14 51 78);
+    --color-primary-80: rgb(0 29 50);
+    --color-primary-90: rgb(0 18 34);
+    --color-primary-95: rgb(0 12 25);
+    --color-primary-container: rgb(41 73 101);
+    --color-primary: rgb(169 202 235);
+    --color-secondary-0: rgb(203 250 248);
+    --color-secondary-5: rgb(189 235 234);
+    --color-secondary-10: rgb(161 207 206);
+    --color-secondary-20: rgb(135 179 178);
+    --color-secondary-30: rgb(108 153 152);
+    --color-secondary-40: rgb(83 127 126);
+    --color-secondary-50: rgb(58 102 101);
+    --color-secondary-60: rgb(33 78 77);
+    --color-secondary-70: rgb(2 55 54);
+    --color-secondary-80: rgb(0 32 32);
+    --color-secondary-90: rgb(0 20 20);
+    --color-secondary-95: rgb(0 14 13);
+    --color-secondary-container: rgb(33 78 77);
+    --color-secondary: rgb(161 207 206);
+    --color-surface-bright: rgb(51 58 66);
+    --color-surface-container: rgb(26 32 40);
+    --color-surface-container-high: rgb(36 42 51);
+    --color-surface-container-highest: rgb(47 53 62);
+    --color-surface-container-low: rgb(22 28 36);
+    --color-surface-container-lowest: rgb(8 15 22);
+    --color-surface: rgb(13 20 27);
+    --color-surface-dim: rgb(13 20 27);
+    --color-surface-tint: rgb(169 202 235);
+    --color-surface-variant: rgb(65 71 83);
+    --color-tertiary-0: rgb(221 250 195);
+    --color-tertiary-5: rgb(207 235 182);
+    --color-tertiary-10: rgb(180 207 156);
+    --color-tertiary-20: rgb(153 179 130);
+    --color-tertiary-30: rgb(127 152 106);
+    --color-tertiary-40: rgb(101 126 82);
+    --color-tertiary-50: rgb(77 101 59);
+    --color-tertiary-60: rgb(54 77 38);
+    --color-tertiary-70: rgb(33 54 17);
+    --color-tertiary-80: rgb(12 32 1);
+    --color-tertiary-90: rgb(5 21 0);
+    --color-tertiary-95: rgb(3 14 0);
+    --color-tertiary-container: rgb(54 77 38);
+    --color-tertiary: rgb(180 207 156);
+  }
+
+  :root.dark.low {
+    --color-on-error-container: rgb(199 103 112);
+    --color-on-error: rgb(84 14 27);
+    --color-on-primary-container: rgb(103 135 166);
+    --color-on-primary: rgb(4 44 71);
+    --color-on-primary-fixed: rgb(167 199 233);
+    --color-on-primary-fixed-variant: rgb(131 163 195);
+    --color-on-secondary-container: rgb(96 140 139);
+    --color-on-secondary: rgb(0 47 47);
+    --color-on-secondary-fixed: rgb(159 204 203);
+    --color-on-secondary-fixed-variant: rgb(124 168 167);
+    --color-on-surface: rgb(157 163 174);
+    --color-on-surface-variant: rgb(125 131 145);
+    --color-on-tertiary-container: rgb(114 140 94);
+    --color-on-tertiary: rgb(26 47 11);
+    --color-on-tertiary-fixed: rgb(177 205 153);
+    --color-on-tertiary-fixed-variant: rgb(142 168 120);
+    --color-on-warn-container: rgb(67 58 7);
+    --color-on-warn: rgb(49 42 0);
+    --color-warn-container: rgb(67 58 7);
+    --color-warn: rgb(157 145 86);
+    --color-error-container: rgb(106 31 42);
+    --color-error: rgb(214 115 124);
+    --color-primary-container: rgb(26 61 88);
+    --color-primary: rgb(116 148 179);
+    --color-primary-fixed: rgb(52 84 112);
+    --color-primary-fixed-dim: rgb(26 61 88);
+    --color-secondary-container: rgb(17 65 64);
+    --color-secondary: rgb(108 153 152);
+    --color-secondary-fixed: rgb(44 88 88);
+    --color-secondary-fixed-dim: rgb(17 65 64);
+    --color-surface-bright: rgb(51 58 66);
+    --color-surface-container: rgb(26 32 40);
+    --color-surface-container-high: rgb(36 42 51);
+    --color-surface-container-highest: rgb(47 53 62);
+    --color-surface-container-low: rgb(22 28 36);
+    --color-surface-container-lowest: rgb(8 15 22);
+    --color-tertiary-container: rgb(42 64 26);
+    --color-tertiary: rgb(127 152 106);
+    --color-tertiary-fixed: rgb(64 88 47);
+    --color-tertiary-fixed-dim: rgb(42 64 26);
+  }
+
+  :root.dark.mid {
+    --color-on-error-container: rgb(0 0 0);
+    --color-on-error: rgb(78 9 23);
+    --color-on-primary-container: rgb(0 0 0);
+    --color-on-primary: rgb(0 40 66);
+    --color-on-primary-fixed: rgb(0 18 34);
+    --color-on-primary-fixed-variant: rgb(22 57 84);
+    --color-on-secondary-container: rgb(0 0 0);
+    --color-on-secondary: rgb(0 43 43);
+    --color-on-secondary-fixed: rgb(0 20 20);
+    --color-on-secondary-fixed-variant: rgb(11 61 60);
+    --color-on-surface: rgb(255 255 255);
+    --color-on-surface-variant: rgb(215 220 236);
+    --color-on-tertiary-container: rgb(0 0 0);
+    --color-on-tertiary: rgb(22 43 7);
+    --color-on-tertiary-fixed: rgb(5 21 0);
+    --color-on-tertiary-fixed-variant: rgb(38 60 22);
+    --color-on-warn-container: rgb(157 145 86);
+    --color-on-warn: rgb(44 38 0);
+    --color-warn-container: rgb(157 145 86);
+    --color-warn: rgb(235 221 155);
+    --color-error-container: rgb(214 115 124);
+    --color-error: rgb(255 209 211);
+    --color-primary-container: rgb(116 148 179);
+    --color-primary: rgb(194 223 255);
+    --color-primary-fixed: rgb(206 229 255);
+    --color-primary-fixed-dim: rgb(169 202 235);
+    --color-secondary-container: rgb(108 153 152);
+    --color-secondary: rgb(183 229 228);
+    --color-secondary-fixed: rgb(189 235 234);
+    --color-secondary-fixed-dim: rgb(161 207 206);
+    --color-surface-bright: rgb(63 69 78);
+    --color-surface-container: rgb(34 40 48);
+    --color-surface-container-high: rgb(45 51 59);
+    --color-surface-container-highest: rgb(56 62 71);
+    --color-surface-container-low: rgb(24 30 38);
+    --color-surface-container-lowest: rgb(3 8 15);
+    --color-tertiary-container: rgb(127 152 106);
+    --color-tertiary: rgb(201 229 176);
+    --color-tertiary-fixed: rgb(207 235 182);
+    --color-tertiary-fixed-dim: rgb(180 207 156);
+  }
+
+  :root.dark.high {
+    --color-on-error-container: rgb(33 0 4);
+    --color-on-error: rgb(0 0 0);
+    --color-on-primary-container: rgb(0 12 25);
+    --color-on-primary: rgb(0 0 0);
+    --color-on-primary-fixed: rgb(0 0 0);
+    --color-on-primary-fixed-variant: rgb(0 18 34);
+    --color-on-secondary-container: rgb(0 14 14);
+    --color-on-secondary: rgb(0 0 0);
+    --color-on-secondary-fixed: rgb(0 0 0);
+    --color-on-secondary-fixed-variant: rgb(0 20 20);
+    --color-on-surface: rgb(255 255 255);
+    --color-on-surface-variant: rgb(255 255 255);
+    --color-on-tertiary-container: rgb(3 14 0);
+    --color-on-tertiary: rgb(0 0 0);
+    --color-on-tertiary-fixed: rgb(0 0 0);
+    --color-on-tertiary-fixed-variant: rgb(5 21 0);
+    --color-on-warn-container: rgb(209 195 131);
+    --color-on-warn: rgb(0 0 0);
+    --color-warn-container: rgb(209 195 131);
+    --color-warn: rgb(255 240 176);
+    --color-error-container: rgb(255 173 178);
+    --color-error: rgb(255 236 236);
+    --color-primary-container: rgb(166 198 231);
+    --color-primary: rgb(230 241 255);
+    --color-primary-fixed: rgb(206 229 255);
+    --color-primary-fixed-dim: rgb(169 202 235);
+    --color-secondary-container: rgb(158 203 202);
+    --color-secondary: rgb(202 249 248);
+    --color-secondary-fixed: rgb(189 235 234);
+    --color-secondary-fixed-dim: rgb(161 207 206);
+    --color-surface-bright: rgb(74 81 90);
+    --color-surface-container: rgb(43 49 57);
+    --color-surface-container-high: rgb(53 60 68);
+    --color-surface-container-highest: rgb(65 71 80);
+    --color-surface-container-low: rgb(26 32 40);
+    --color-surface-container-lowest: rgb(0 0 0);
+    --color-tertiary-container: rgb(176 203 152);
+    --color-tertiary: rgb(221 249 195);
+    --color-tertiary-fixed: rgb(207 235 182);
+    --color-tertiary-fixed-dim: rgb(180 207 156);
+  }
+}
