@@ -1,6 +1,6 @@
 {
   "name": "@qingshaner/storybook-addon",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Qingshaner's storybook theme",
   "keywords": [
     "storybook-addons",
@@ -77,7 +77,8 @@
     "storybook": "0.0.0-pr-26654-sha-49d01553"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "bundler": {
     "exportEntries": [
